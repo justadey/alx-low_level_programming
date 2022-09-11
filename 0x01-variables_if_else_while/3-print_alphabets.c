@@ -8,11 +8,11 @@
 int main(void)
 {
 	char c;
-	for (c = 'a'; c <= 'z'; c++)
+	for (c ='a'; c <='z'; c++)
 	{
 		putchar(c);
 	}
-	for (c = 'A'; c <= 'Z'; c++)
+	for (c ='A'; c <='Z'; c++)
 	{
 		putchard(c);
 	}
@@ -20,4 +20,5 @@ int main(void)
 	putchard('\n');
 
 	return (0);
+}
 
