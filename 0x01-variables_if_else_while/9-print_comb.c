@@ -4,7 +4,7 @@
  * *main - Prints a serie of numbers with commas
  * *
  * * Return: Always (Success);
- * */
+ */
 int main(void)
 {int a = '0';
 	for (; a <= '9'; a++)
