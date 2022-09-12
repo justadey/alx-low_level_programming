@@ -1,19 +1,19 @@
 #include <stdio.h>
-
 /**
  *  * main - Entry point
  *   *
- *    * Return: Always 0 (Succes)
- */
+ *    * Return: Always 0 (Success)
+ *     */
 int main(void)
-{char abc = 'a';
-	char capital = 'A';
-	for (; abc <= 'z'; abc++)
-
-	{putchar(abc);
+{
+	char ch;
+	for (ch = 'a'; ch <= 'z'; ch++)
+	{
+		putchar(ch);
 	}
-	for (; capital <= 'Z'; capital++)
-	{putchar(capital);
+	for (ch = 'A'; ch <= 'Z'; ch++)
+	{
+		putchar(ch);
 	}
 	putchar('\n');
 	return (0);
