@@ -6,13 +6,14 @@
  * * Numbers should be printed in ascending order with 2 digits
  * * You can only use the putchar function
  * * Return: 0
- * */
+ */
 
 
 int main(void)
 {int first;
 	int second;
 	int third;
+
 	for (first = 48; first < 58; first++)
 	{
 		for (second = 49; second < 58; second++)
