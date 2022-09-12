@@ -1,24 +1,19 @@
 #include <stdio.h>
 
 /**
- * main - lowercase and uppercase
- *
- * Return: Always (Success)
- */
+ *  * main - Entry point
+ *   *
+ *    * Return: Always 0 (Succes)
+ *     */
 int main(void)
-{
-	char c;
-	for (c ='a'; c <='z'; c++)
-	{
-		putchar(c);
+{char abc = 'a';
+	char capital = 'A';
+	for (; abc <= 'z'; abc++)
+	{putchar(abc);
 	}
-	for (c ='A'; c <='Z'; c++)
-	{
-		putchard(c);
+	for (; capital <= 'Z'; capital++)
+	{putchar(capital);
 	}
-
-	putchard('\n');
-
+	putchar('\n');
 	return (0);
 }
-
