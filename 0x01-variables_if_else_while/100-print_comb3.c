@@ -1,24 +1,25 @@
 #include <stdio.h>
 
 /**
- * main - Print single digit numbers starting from 0
- *
- * Return: returns zero at the end
- */
-int main(void)
-{
-	int i, j;
+ * * main - Prints combination of numbers
+ * *
+ * * Return: Always (Success)
+ * */
 
-	for (i = 0; i <= 9; i++)
+int main(void)
+{int n1;
+	int m1;
+	for (n1 = 48; n1 <= 56; n1++)
 	{
-		if (j>i)
+		for (m1 = 49; m1 <= 57; m1++)
 		{
-			putchar(i + '0');
-			putchar(j + '0');
-			if (i !=8)
-			{
-				putchar(',');
-				putchar('');
+			if (m1 > n1)
+			{putchar(n1);
+				putchar(m1);
+				if (n1 != 56 || m1 != 57)
+				{putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
