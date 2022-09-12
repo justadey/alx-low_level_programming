@@ -1,23 +1,17 @@
 #include <stdio.h>
-
 /**
- * main - Ommit some alphabet
- *
- * Return: ALways (Success)
- */
+ *  * main - Entry point
+ *   *
+ *    * Return: Always 0 (Success)
+ *     */
 int main(void)
-
 {
-	char c;
-	for (c ='a'; c < = 'z'; c++)
+	char ch;
+	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		if (c != 'e' && c != 'q')
-		{
-			putchar(c);
-		}
+		if (ch != 'e' && ch != 'q')
+			putchar(ch);
 	}
 	putchar('\n');
-
 	return (0);
 }
-
