@@ -3,7 +3,7 @@
 /**
  * *main - Prints the sum of all multiples of 3 or 5 tp to 1024
  *
- * Returns: Always (Success)
+ * Return: Always (Success)
  */
 
 int main(void)
