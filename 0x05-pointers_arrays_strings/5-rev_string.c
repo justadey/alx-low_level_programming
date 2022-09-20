@@ -2,19 +2,22 @@
 #include "main.h"
 
 /**
- * puts_half - prints a string
- * @str: string to print
+ * rev_string - Reverses a string
+ * @s: string to be reversed
  *
  * Return: nothing
  */
 
-void puts_half(char *str)
+void rev_string(char *s)
 {
-	int i, len = _strlen(str);
+	int i, tmp, len = _strlen(s);
 
-	for (i = ((len - 1) / 2) + 1; i < len; i++)
-		putchar(*(str + i));
-	putchar(10);
+	for (i = 0; i < len / 2; i++)
+	{
+		tmp = *(s + i);
+		*(s + i) = *(s + len - i - 1);
+		*(s + len - i - 1) = tmp;
+	}
 }
 
 /**
