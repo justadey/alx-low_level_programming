@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * main - Program that adds posistive numbers
- * @argc: This is the argument count
- * @argv: This is the argument vector
+ * main - Prints the addition of positive numbers
+ * @argc: The number of arguments passed to the program
+ * @argv: An array of pointers to the arguments
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 
 int main(int argc, char *argv[])
