@@ -4,24 +4,33 @@
 #include <string.h>
 
 /**
- * check_num - check - string there are digit
- * @str: array str
+ * main - Program that adds posistive numbers
+ * @argc: This is the argument count
+ * @argv: This is the argument vector
  *
  * Return: Always 0 (Success)
  */
 
-int check_num(char *str)
+int main(int argc, char *argv[])
 {
-	/*Declaring variables*/
-	unsigned int count;
+	int sum = 0, i;
 
-	count = 0;
-	while (count < strlen(str)) /*count string*/
-
+	if (argc > 1)
 	{
-		if (!isdigit(str[count])) /*check if str there are digit*/
+		for (i = 1; i < argc; i++)
 		{
-			return (0);
+			int b;
+			char *str;
+			
+			str = argv[i];
+			for (b =0; str[b] != '\0'; b++)
+			{
+				if (str[b] < 48 || str [b] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
 		}
 
 		count++;
