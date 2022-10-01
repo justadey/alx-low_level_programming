@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
  * main - Print the name of the program
@@ -11,11 +10,10 @@
 
 int main(int argc, char *argv[])
 {
-	int n;
+	int arg;
 
-	for (n = 0; n < argc; n++)
-	{
-		printf("%s\n", argv[count]);
-	}
-	return (0)
+	for (arg = 0; arg < argc; arg++)
+		printf("%s\n", argv[arg]);
+
+	return (0);
 }
