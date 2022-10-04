@@ -11,17 +11,18 @@
 
 char *create_array(unsigned int size, char c)
 {
-	char *array;
-	unsigned int index;
+	unsigned int i;
+
+	char *s;
 
 	if (size == 0)
 		return (NULL);
-	arrat = malloc(sizeof(char) * size);
-
-	if (array == NULL)
+	s = (char *)malloc(size * sizeof(char));
+	if (s == NULL)
 		return (NULL);
-
-	for (index = 0; index < size; index++)
-		arrat[index] = c;
-	return (array);
+	for (i = 0; i < size; i++)
+		s[i] = c;
+	return (s);
 }
+
+
