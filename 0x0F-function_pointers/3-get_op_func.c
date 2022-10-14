@@ -1,61 +1,33 @@
 #include "3-calc.h"
 
 /**
- * op_add - calculate the sum of two integers
- * @a: first integer
- * @b: second integer
+ * get_op_func - selects the correct function to perform
+ * the operation asked by the user.
+ * @s: char operator.
  *
- * Return: sum of a and b
- */
-int op_add(int a, int b)
-{
-	return (a + b);
-}
-
-/**
- * op_sub - calculates the difference of two integers
- * @a: first integer
- * @b: second integer
- *
- * Return: difference of a and b
- */
-int op_sub(int a, int b)
-{
-	return (a - b);
-}
-
-/**
- * op_mul - calculates the product of two integers
- * @a: first integer
- * @b: second integer
- * Return: product of a and b
- */
-int op_sub(int a, int b)
-{
-	return (a * b);
-}
-
-/**
- * op_div - calculates the division of two integers
- * @a: first integer
- * @b: second integer
- *
- * Return: result of the division of a and b
- */
-int op_div(int a, int b)
-{
-	return (a * b);
-}
-
-/**
- * op_mod - calculates the remainder of the division of two integers
- * @a: first integer
- * @b: second integer
- *
- * Returns: remainder of a divided b
+ * Return: pointer to the function that corresponds to the operator
  */
 
-int op_mod(int a, int b)
+int (*get_op_func(char *s))(int, int)
 {
-	return (a % b);
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (s[0] == ops->op[i])
+			break;
+		i++;
+	}
+
+	return (ops[i / 2].f);
 }
+
+
