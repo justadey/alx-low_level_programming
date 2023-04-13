@@ -1,64 +1,104 @@
 #include "search_algos.h"
+int recursive_binary_search(int *array, int left, int right, int value);
+void print_search(int *array, int first, int last);
+
 
 /**
- * rec_search - searches for a value in an array of
- * integers using the Binary search algorithm
+ * advanced_binary - Searches value in array using the Binary search algo
  *
+ * @array: Array to search
  *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * @size: Size of the array
+ *
+ * @value: Value to search
+ *
+ * Return: First index where value is located or -1 for NULL array
  */
-int rec_search(int *array, size_t size, int value)
+
+int advanced_binary(int *array, size_t size, int value)
 {
-	size_t half = size / 2;
-	size_t i;
-
-	if (array == NULL || size == 0)
-		return (-1);
-
-	printf("Searching in array");
-
-	for (i = 0; i < size; i++)
-		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
-
-	printf("\n");
-
-	if (half && size % 2 == 0)
-		half--;
-
-	if (value == array[half])
+	/* Check inputs and call recursive search return value */
+	if (array && size)
 	{
-		if (half > 0)
-			return (rec_search(array, half + 1, value));
-		return ((int)half);
+		return (recursive_binary_search(array, 0, (int)size - 1, value));
 	}
+	/* Otherwise return -1 */
+	return (-1);
+}
 
-	if (value < array[half])
-		return (rec_search(array, half + 1, value));
 
-	half++;
-	return (rec_search(array + half, size - half, value) + half);
+/**
+ * recursive_binary_search - Recursively breaks array into subarrays & searches
+ *
+ * @array: Array to search
+ *
+ * @left: Search on left side of array
+ *
+ * @right: Search on right side of array
+ *
+ * @value: Value to search
+ *
+ * Return: First index where value is located or -1 for NULL array
+ */
+
+int recursive_binary_search(int *array, int left, int right, int value)
+{
+
+	int middle;
+
+
+	/* If value is smaller then middle, look in first half of array */
+	if (right >= left)
+	{
+		middle = left + (right - left) / 2;
+		print_search(array, left, right);
+
+		/* If search finds value in middle, return value */
+		if (array[left] == value)
+		{
+			return (left);
+		}
+
+		/* If element is less than middle, search left subarray */
+		if (array[middle] < value)
+		{
+			return (recursive_binary_search(array, middle + 1, right, value));
+		}
+
+		/* Otherwise search for value in right subarray */
+		return (recursive_binary_search(array, left, middle, value));
+
+	}
+	/* If element doesn't exist return -1 */
+	return (-1);
 }
 
 /**
- * advanced_binary - calls to rec_search to return
- * the index of the number
+ * print_search - Prints arrayand side of array
  *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * @array: Array to search
+ *
+ * @first: left hand side of array
+ *
+ * @last: right hand side of array
+ *
+ * Return: Void
  */
-int advanced_binary(int *array, size_t size, int value)
+
+void print_search(int *array, int first, int last)
 {
-	int index;
+	int index = 0;
 
-	index = rec_search(array, size, value);
+	printf("Searching in array: ");
 
-	if (index >= 0 && array[index] != value)
-		return (-1);
-
-	return (index);
+	while (first <= last)
+	{
+		if (index > 0)
+		{
+			printf(", ");
+		}
+		index = first++;
+		printf("%d", array[index++]);
+	}
+	printf("\n");
 }

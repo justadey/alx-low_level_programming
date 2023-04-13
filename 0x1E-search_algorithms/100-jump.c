@@ -1,44 +1,55 @@
 #include "search_algos.h"
 #include <math.h>
 
+int min_value(int num1, int num2);
+
 /**
- * jump_search - searches for a value in an array of
- * integers using the Jump search algorithm
+ * jump_search - Searches value in array of ints using the Jump search algo
  *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * @array: Array to search
+ *
+ * @size: Size of the array
+ *
+ * @value: Value to search
+ *
+ * Return: First index where value is located or -1 for NULL array
  */
+
 int jump_search(int *array, size_t size, int value)
 {
-	int index, m, k, prev;
+	/* Define jump number by square root of size */
+	int jump = sqrt(size);
+	int index = 0;
 
-	if (array == NULL || size == 0)
-		return (-1);
-
-	m = (int)sqrt((double)size);
-	k = 0;
-	prev = index = 0;
-
-	do {
-		printf("Value checked array[%d] = [%d]\n", index, array[index]);
-
-		if (array[index] == value)
-			return (index);
-		k++;
-		prev = index;
-		index = k * m;
-	} while (index < (int)size && array[index] < value);
-
-	printf("Value found between indexes [%d] and [%d]\n", prev, index);
-
-	for (; prev <= index && prev < (int)size; prev++)
+	/* Check inputs */
+	if (!array)
 	{
-		printf("Value checked array[%d] = [%d]\n", prev, array[prev]);
-		if (array[prev] == value)
-			return (prev);
+		return (-1);
 	}
 
+	/* Find block of array where value is found in jump_step */
+	while (index < (int)size && array[index] < value)
+	{
+		printf("Value checked array[%d] = [%d]\n", index, array[index]);
+		index += jump;
+	}
+
+	/* Set jumpsize to index at beginning of array block to search*/
+	index -= jump;
+
+	printf("Value found between indexes [%d] and [%d]\n", index, index + jump);
+
+	/* Value found in block of size jump_step. Linearly find value */
+	while (index <= (index + jump) && index < (int)size)
+	{
+		printf("Value checked array[%d] = [%d]\n", index, array[index]);
+
+		/* Found return value at index */
+		if (array[index] == value)
+		{
+			return (index);
+		}
+		index++;
+	}
 	return (-1);
 }
